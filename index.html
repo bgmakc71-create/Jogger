@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App with Stars</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌟 Магазин звезд</h1>
+        <p>Поддержи разработчика звездами!</p>
+        
+        <div class="products">
+            <div class="product-card" onclick="buyStars(5)">
+                <div class="stars">5 ⭐</div>
+                <div class="price">Маленькая поддержка</div>
+            </div>
+            
+            <div class="product-card" onclick="buyStars(10)">
+                <div class="stars">10 ⭐</div>
+                <div class="price">Средняя поддержка</div>
+            </div>
+            
+            <div class="product-card premium" onclick="buyStars(25)">
+                <div class="stars">25 ⭐</div>
+                <div class="price">Большая поддержка</div>
+            </div>
+        </div>
+
+        <div class="balance" id="balance">
+            Баланс звезд: загрузка...
+        </div>
+
+        <button class="tg-button secondary" onclick="closeApp()">
+            Закрыть приложение ❌
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
