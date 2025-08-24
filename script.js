@@ -7,6 +7,14 @@ tg.expand();
 if (window.location.pathname.includes("page2.html")) {
   tg.BackButton.show();
 
+  if (window.location.pathname.includes("index.html")) {
+tg.CloseButton.show()
+  }
+
+  tg.CloseButton.onClick(() => {
+    tg.close(); // закрыть аппу
+  });
+}
   tg.BackButton.onClick(() => {
     window.location.href = "index.html"; // возвращаем на главную
   });
