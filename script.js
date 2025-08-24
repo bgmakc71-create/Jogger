@@ -1,5 +1,16 @@
 const tg = window.Telegram.WebApp;
-tg.expand(); // растягивает окно под контент
+
+// Растягиваем окно под fullscreen
+tg.expand();
+
+// Если мы на второй странице — включаем кнопку "Назад"
+if (window.location.pathname.includes("page2.html")) {
+  tg.BackButton.show();
+
+  tg.BackButton.onClick(() => {
+    window.location.href = "index.html"; // возвращаем на главную
+  });
+}
 
 // Кнопка на главной странице
 const startBtn = document.getElementById("startBtn");
