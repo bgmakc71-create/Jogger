@@ -68,3 +68,12 @@ body {
     transform: translateX(100%);
   }
 }
+/* Убираем синий highlight при тапе */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Убираем outline при фокусе */
+:focus {
+  outline: none !important;
+}
