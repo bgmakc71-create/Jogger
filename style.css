@@ -1,55 +1,109 @@
+/* Базовая тема в стиле Telegram */
+:root {
+  color-scheme: light dark;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   background: var(--tg-theme-bg-color, #17212b);
   color: var(--tg-theme-text-color, #fff);
-  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 }
 
 .container {
+  width: 100%;
+  max-width: 560px;
+  padding: 24px;
   text-align: center;
-  padding: 20px;
+}
+
+h1, h2 {
+  margin: 0 0 12px;
+  color: var(--tg-theme-text-color, #fff);
 }
 
 .subtitle {
   opacity: 0.8;
-  margin-bottom: 20px;
+  margin: 0 0 20px;
 }
 
+/* Карточка формы */
+.card {
+  background: var(--tg-theme-secondary-bg-color, rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 16px;
+  margin-top: 16px;
+  text-align: left;
+  backdrop-filter: blur(4px);
+}
+
+.hidden { display: none; }
+
+.label {
+  display: block;
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 10px 0 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--tg-theme-bg-color, #0f1820);
+  color: var(--tg-theme-text-color, #fff);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--tg-theme-accent-text-color, #2aabee);
+}
+
+/* Telegram-like кнопка с «сиянием» при нажатии */
 .tg-button {
   position: relative;
   overflow: hidden;
   display: inline-block;
   padding: 12px 24px;
-  margin: 10px;
+  margin: 10px 8px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--tg-theme-button-text-color, #fff);
-  background: var(--tg-theme-button-color, #2aABEE);
+  background: var(--tg-theme-button-color, #2aabee);
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   transition: transform 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent; /* убираем синий тап-хайлайт */
 }
 
-/* Эффект "сияния" при клике */
+.tg-button.full { width: 100%; margin: 14px 0 4px; }
+
+/* Переливающийся блик */
 .tg-button::after {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 200%;
+  left: -120%;
+  width: 240%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.4),
-    transparent
-  );
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
   transform: translateX(-100%);
+  pointer-events: none;
 }
 
 .tg-button:active {
@@ -61,21 +115,10 @@ body {
 }
 
 @keyframes shine {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(100%);
-  }
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
 }
 
-/* Убираем синий "селект-бокс" при нажатии */
-a, button {
-  -webkit-tap-highlight-color: transparent; /* отключает синий фон на мобилках */
-  outline: none; /* убирает рамку при фокусе */
-}
-
-button:focus, a:focus {
-  outline: none;
-  box-shadow: none;
-}
+/* Убираем браузерные подсветки при фокусе на ссылках/кнопках */
+a, button { outline: none; }
+a:focus, button:focus { outline: none; box-shadow: none; }

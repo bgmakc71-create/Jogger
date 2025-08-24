@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Mini App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CTRL SH0T — Mini App</title>
+  <link rel="stylesheet" href="style.css" />
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script defer src="script.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Добро пожаловать в админку ктрл шот,</h1>
-    <p class="subtitle">Нажимай на кнопку ниже, входи, и кайфуй</p>
-    <button class="tg-button" id="startBtn">Начать (вход будет потом)</button>
+    <h1>CTRL SH0T — вход в игру</h1>
+    <p class="subtitle">Нажми «Начать», чтобы открыть форму. Подсказка спрятана в коде 👀</p>
+
+    <button class="tg-button" id="startBtn">Начать</button>
+
+    <!-- Форма скрыта до клика -->
+    <form id="loginForm" class="card hidden">
+      <label class="label">Логин</label>
+      <input class="input" id="loginInput" placeholder="введи логин" autocomplete="off" />
+
+      <label class="label">Пароль</label>
+      <input class="input" id="passwordInput" placeholder="введи пароль" autocomplete="off" />
+
+      <button type="submit" class="tg-button full">Войти</button>
+    </form>
   </div>
 </body>
 </html>
