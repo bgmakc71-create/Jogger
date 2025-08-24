@@ -68,12 +68,14 @@ body {
     transform: translateX(100%);
   }
 }
-/* Убираем синий highlight при тапе */
-* {
-  -webkit-tap-highlight-color: transparent;
+
+/* Убираем синий "селект-бокс" при нажатии */
+a, button {
+  -webkit-tap-highlight-color: transparent; /* отключает синий фон на мобилках */
+  outline: none; /* убирает рамку при фокусе */
 }
 
-/* Убираем outline при фокусе */
-:focus {
-  outline: none !important;
+button:focus, a:focus {
+  outline: none;
+  box-shadow: none;
 }
